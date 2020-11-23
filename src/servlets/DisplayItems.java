@@ -1,9 +1,14 @@
+package servlets;
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -11,13 +16,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import connection.ConnectDB;
+import model.Book;
+
 /**
  * Servlet implementation class DisplayItems
  */
 @WebServlet("/DisplayItems")
 public class DisplayItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
     public DisplayItems() {
         super();
     }
@@ -28,7 +36,8 @@ public class DisplayItems extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-		
+		 ArrayList<Book> bookList = new ArrayList<>();
+		 
 		try {
 			Connection con = ConnectDB.connect();
 			
@@ -39,12 +48,14 @@ public class DisplayItems extends HttpServlet {
             try {
             	c = new Cookie(request.getParameter("ItemId"), "0000000000001");
             	response.addCookie(c);
-            	pw.print("Product Added to Cart successfully!");            	
+            	pw.print("Product Added to Cart successfully!");  
+                bookList.add(new Book(rs.getString(1),rs.getString(2), rs.getInt(3), rs.getDouble(4)));
+               
             }
             catch(Exception e) {}
             
             pw.print("<a href = 'ViewCartItems'>View Cart</a>");
-            
+            System.out.println(bookList.size());
             pw.print(
             		"<table cellpadding = \"20\">\r\n"
             		+ "            <tr>\r\n"
@@ -61,7 +72,7 @@ public class DisplayItems extends HttpServlet {
             			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
             			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
             			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
-            			+ "		            	<td>" + rs.getInt(4)+ "</td>\r\n"
+            			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
             			+"						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
             			+ "	            	</tr><br>"
             			);
@@ -73,14 +84,17 @@ public class DisplayItems extends HttpServlet {
 		{	
 			pw.print(e);
 		}
+		
+	       request.setAttribute("data", bookList); 
+	       
+	       // Creating a RequestDispatcher object to dispatch 
+	       // the request the request to another resource 
+	         RequestDispatcher rd =  
+	             request.getRequestDispatcher("bookstore.jsp"); 
+	  
+	       // The request will be forwarded to the resource  
+	       // specified, here the resource is a JSP named, 
+	       // "stdlist.jsp" 
+	          rd.forward(request, response);
 	}
-
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-//	}
-//
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		doGet(request, response);
-//	}
-
 }
