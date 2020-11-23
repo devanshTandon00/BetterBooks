@@ -36,7 +36,7 @@
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // change BetterBooks in the url to name of schema to run
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BetterBooks?serverTimezone=EST5EDT",user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/team3bookshop?serverTimezone=EST5EDT",user, password);
 
             //out.println("Initial entries in table hw1: <br/>");
             Statement stmt = con.createStatement();
