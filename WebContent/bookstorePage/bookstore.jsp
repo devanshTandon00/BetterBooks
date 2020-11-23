@@ -1,0 +1,75 @@
+<%@ page import="java.sql.*"%>
+<html>
+	<body>
+	<head>
+	        <link href = '../inventoryPage/inventory.css' rel = 'stylesheet' type="text/css">
+	        <link href = '../landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+	</head>
+		<header> 
+            <div class = "container">
+                <img src = "../images/icon-book.svg" class="book-icon">
+                <h3 class = "projectTitle"><a href = "../landingPage/index.jsp"> BetterBooks </a></h3>
+                <nav class = "navbar fixed-top">
+                    <ul>
+                        <li><a href = "../loginPage/login.html">Register</a></li>
+                        <li><a href="../bookstorePage/bookstore.jsp">Bookstore</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
+                        <li><a href="#">
+                                <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+		<h1>Welcome to Inventory!</h1>
+		
+    <%
+    	String db = "team3bookshop";
+    	//note that the user and password needs to be changed for different SQL Workbenches
+        String user = "root";
+    	String password = "root";
+        try {
+
+            java.sql.Connection con;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            // change BetterBooks in the url to name of schema to run
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BetterBooks?serverTimezone=EST5EDT",user, password);
+
+            //out.println("Initial entries in table hw1: <br/>");
+            Statement stmt = con.createStatement();
+            String queryString = "SELECT ISBN, title, year, price FROM team3bookshop.books";
+            ResultSet rs = stmt.executeQuery(queryString);
+            %>
+            <table cellpadding = "20">
+            <tr>
+					<td>ISBN</td>
+					<td>Title</td>
+					<td>Year</td>
+					<td>Price</td>
+			</tr>
+            <%
+            while (rs.next()) 
+            {
+            %>	
+            	<tbody class = "info" style = "width: 100%;">
+	            	<tr>
+		            	<td><%=rs.getInt(1)%></td>
+		            	<td><%=rs.getString(2)%></td>
+		            	<td><%=rs.getInt(3)%></td>
+		            	<td><%=rs.getInt(4)%></td>
+	            	</tr>    
+            	</tbody>   	
+            <% } %>
+<%      
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch(SQLException e) {
+            out.println("SQLException caught: " + e.getMessage() + db);
+        }
+ %>
+   </table>
+  </body>
+</html>

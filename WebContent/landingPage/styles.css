@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  background: rgb(54, 30, 30);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  background: rgba(240, 240, 240, 0.904);
+  padding: 4px;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.projectTitle {
+  float: left;
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar {
+  float: right;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-left: 45px;
+  padding: 5px;
+  font-size: 18px;
+  font-family: "Cinzel", serif;
+}
+
+/* SearchBox */
+.inputBox {
+  display: flex;
+  justify-content: center;
+  padding: 80px;
+}
+
+.searchBox {
+  width: 40%;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgb(141, 90, 90);
+  box-sizing: border-box;
+  color: azure;
+  outline: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: medium;
+}
+
+::placeholder {
+  color: white;
+}
+
+i {
+  position: relative;
+  top: 15px;
+  left: 7px;
+  size: 5rem;
+  color: white;
+}
+
+.book-icon {
+  padding-left: 5px;
+  position: relative;
+  top: 2px;
+  width: 35px;
+}
+
+.bookSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookSection img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.bookIMG {
+  padding: 5px;
+}

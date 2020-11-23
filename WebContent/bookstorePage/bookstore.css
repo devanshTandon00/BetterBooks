@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+.info{
+	border: 2;
+	width: 100%;
+}
+
+tr{
+	width: 100%;	
+}
+
+h1{
+	text-align:center;
+}
+body {
+  margin: 0;
+  background-image: linear-gradient(
+    var(--body_gradient_left),
+    var(--submit_hover)
+  );
+  overflow-x: hidden;
+}
