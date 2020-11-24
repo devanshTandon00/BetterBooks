@@ -29,7 +29,6 @@ public class ViewCartItems extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-//		PrintWriter pw = response.getWriter();
 		ArrayList<Book> bookList = new ArrayList<>();
 		
 		Connection con = ConnectDB.connect();
@@ -66,6 +65,6 @@ public class ViewCartItems extends HttpServlet {
         }
         	request.setAttribute("data", bookList); 
 	
-	       request.getRequestDispatcher("shoppingCart.jsp").forward(request, response);
+	       request.getRequestDispatcher("/shoppingCart/shoppingCart.jsp").forward(request, response);
 	}
 }

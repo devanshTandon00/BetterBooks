@@ -8,7 +8,7 @@
 	<body>
 	<head>
 	        <link href = '../inventoryPage/inventory.css' rel = 'stylesheet' type="text/css">
-	        <link href = '../landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+	        <link href = 'landingPage.css' rel = 'stylesheet' type="text/css">
 	</head>
 		<header> 
             <div class = "container">
@@ -20,15 +20,15 @@
                         <li><a href="DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
-                        <li><a href="#">
+                        <li><a href="ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
-		<h1>Welcome to Shopping Cart!</h1>
+        <a href = 'ViewCartItems'>View Cart</a>
+		<h1>Welcome to BookStore!</h1>
 	      <table cellpadding = "20">
             <tr>
 					<td>ISBN</td>
@@ -36,26 +36,25 @@
 					<td>Year</td>
 					<td>Price</td>
 			</tr>
+			<%
+		ArrayList<Book> bookstore =  (ArrayList<Book>)request.getAttribute("data"); 
+// 		Connection con = ConnectDB.connect();
+			
+// 		String q = "select * from books";
+// 		PreparedStatement pst = con.prepareStatement(q);
+//         ResultSet rs = pst.executeQuery();
 		
-		<%
-		ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("data"); 
-		Connection con = ConnectDB.connect();
-		
-		String q;
-		PreparedStatement pst;
-        ResultSet rs = null;
-        
-		if(bookList != null){
-        for(Book book: bookList){%> 
+		if(bookstore != null){
+        for(Book book: bookstore){%> 
   			<tr> 
                 <td><%=book.getISBN()%></td> 
                 <td><%=book.getTitle()%></td> 
                 <td><%=book.getYear()%></td> 
-                <td><%=book.getPrice()%></td>                 
-                <td><a href = 'ViewCartItems?ItemId=<%=book.getISBN()%>'><strong>Remove From Cart </strong></a></td>
+                <td><%=book.getPrice()%></td> 
+                <td><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
             </tr> 
         	<%} %>
         <% }%>	
-		</table>
-		</body>
-		</html>
+   </table>
+  </body>
+</html>

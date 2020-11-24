@@ -32,7 +32,7 @@ public class DisplayItems extends HttpServlet {
 	int added_cart_product = 0;
 	Cookie c = null;
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		 
@@ -49,43 +49,11 @@ public class DisplayItems extends HttpServlet {
             	System.out.println("Product Added to Cart successfully!");  
             }
             catch(Exception e) {}
-            
-//            pw.print("<a href = 'ViewCartItems'>View Cart</a>");
-//
-//            pw.print(
-//            		"<table cellpadding = \"20\">\r\n"
-//            		+ "            <tr>\r\n"
-//            		+ "					<td>ISBN</td>\r\n"
-//            		+ "					<td>Title</td>\r\n"
-//            		+ "					<td>Year</td>\r\n"
-//            		+ "					<td>Price</td>\r\n"
-//            		+ "			</tr>"
-//            );
-//            
+
             while (rs.next()) 
             {
         		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));  
-//        		pw.print("<tr>\r\n"
-//            			
-//            		+ "						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
-//            			+ "	            	</tr><br>"
-//            			);	
             }
-
-            
-//            System.out.println(bookList.get(0).getTitle());
-//            while (rs.next()) 
-//            {	
-//            	pw.print("<tr>\r\n"
-//            			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
-//            			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
-//            			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
-//            			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
-//            			+"						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
-//            			+ "	            	</tr><br>"
-//            			);	
-//            }
-//            pw.print("</table></body></html>");
             
 		}
 		catch(Exception e)
@@ -95,7 +63,6 @@ public class DisplayItems extends HttpServlet {
 		
 		request.setAttribute("data", bookstore); 
 		
-	    request.getRequestDispatcher("bookstore.jsp").forward(request, response);
-	         
+	    request.getRequestDispatcher("/bookstorePage/bookstore.jsp").forward(request, response);     
 	}
 }
