@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import connection.ConnectDB;
+import model.Book;
 
 /**
  * Servlet implementation class ViewCartItems
@@ -28,6 +30,7 @@ public class ViewCartItems extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		ArrayList<Book> bookList = new ArrayList<>();
 		
 		Connection con = ConnectDB.connect();
 		
@@ -63,14 +66,16 @@ public class ViewCartItems extends HttpServlet {
           		q = "select * from books where ISBN = " + ck[i].getName();
         		pst = con.prepareStatement(q);
         		rs = pst.executeQuery();
-        		        		 
-                while (rs.next()) 
+        		               
+        		while (rs.next()) 
                 {
+            		bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));
+
                 	pw.print("<tr>\r\n"
                 			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
                 			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
                 			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
-                			+ "		            	<td>" + rs.getInt(4)+ "</td>\r\n"
+                			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
                 			+"						<td><a href = 'ViewCartItems?ItemId="+ rs.getString(1) + "'>Remove from Cart </a></td>"			
                 			+ "	            	</tr><br>"
                 			);
@@ -83,5 +88,8 @@ public class ViewCartItems extends HttpServlet {
         catch(Exception e) {
         	
         }
+        	request.setAttribute("data", bookList); 
+	
+	       request.getRequestDispatcher("shoppingCart.jsp").forward(request, response);
 	}
 }

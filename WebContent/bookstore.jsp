@@ -2,12 +2,13 @@
 <%@page import="java.util.ArrayList"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <%@page import="model.Book"%> 
+<%@page import="connection.ConnectDB"%> 
 
 <html>
 	<body>
 	<head>
 	        <link href = '../inventoryPage/inventory.css' rel = 'stylesheet' type="text/css">
-	        <link href = '../landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+	        <link href = 'landingPage.css' rel = 'stylesheet' type="text/css">
 	</head>
 		<header> 
             <div class = "container">
@@ -19,14 +20,15 @@
                         <li><a href="../bookstorePage/bookstore.jsp">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
-                        <li><a href="#">
+                        <li><a href="ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-		<h1>Welcome to Inventory!</h1>
+<!--         <a href = 'ViewCartItems'>View Cart</a> -->
+		<h1>Welcome to BookStore!</h1>
 	      <table cellpadding = "20">
             <tr>
 					<td>ISBN</td>
@@ -34,19 +36,26 @@
 					<td>Year</td>
 					<td>Price</td>
 			</tr>
-         <%
-         ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("data"); 
-        for(Book book: bookList){%> 
-        <%-- Arranging data in tabular form 
-        --%> 
-            <tr> 
-                <td><%=book.getISBN()%></td> 
-                <td><%=book.getTitle()%></td> 
-                <td><%=book.getYear()%></td> 
-                <td><%=book.getPrice()%></td> 
-            </tr> 
-            <%}%> 
-         
+			
+			<%
+			Connection con = ConnectDB.connect();
+
+			String q = "select * from books";
+			PreparedStatement pst = con.prepareStatement(q);
+            ResultSet rs = pst.executeQuery();
+            
+			while (rs.next()) 
+            {	
+            	out.println("<tr>\r\n"
+            			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
+            			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
+            			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
+            			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
+            			+"						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
+            			+ "	            	</tr><br>"
+            			);	
+            }
+			%>
    </table>
   </body>
 </html>
