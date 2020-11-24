@@ -29,7 +29,7 @@ public class ViewCartItems extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter pw = response.getWriter();
+//		PrintWriter pw = response.getWriter();
 		ArrayList<Book> bookList = new ArrayList<>();
 		
 		Connection con = ConnectDB.connect();
@@ -42,26 +42,13 @@ public class ViewCartItems extends HttpServlet {
         	Cookie c = new Cookie(request.getParameter("ItemId"), "0000000000001");
         	c.setMaxAge(0);
         	response.addCookie(c);
-        	pw.print("Product Removed from Cart successfully!");            	
+        	System.out.println("REmoved cookies");
         }
         catch(Exception e) {}
-        
-        pw.print("<a href = 'DisplayItems'>Go Back</a>");
-        
+                
         try {
         	Cookie ck[] = request.getCookies();
-        	
-        	pw.print(
-        			"<table cellpadding = \"20\">\r\n"
-                    		+ "            <tr>\r\n"
-                    		+ "					<td>ISBN</td>\r\n"
-                    		+ "					<td>Title</td>\r\n"
-                    		+ "					<td>Year</td>\r\n"
-                    		+ "					<td>Price</td>\r\n"
-                    		+ "			</tr>"
-        			);
-        	
-        	
+        	      	
         	for(int i = 1; i < ck.length;i++) {
           		q = "select * from books where ISBN = " + ck[i].getName();
         		pst = con.prepareStatement(q);
@@ -69,21 +56,10 @@ public class ViewCartItems extends HttpServlet {
         		               
         		while (rs.next()) 
                 {
-            		bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));
-
-                	pw.print("<tr>\r\n"
-                			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
-                			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
-                			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
-                			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
-                			+"						<td><a href = 'ViewCartItems?ItemId="+ rs.getString(1) + "'>Remove from Cart </a></td>"			
-                			+ "	            	</tr><br>"
-                			);
+            		bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));                	
                 }
               
         	}
-        	
-        	  pw.print("</table></body></html>");
         }
         catch(Exception e) {
         	

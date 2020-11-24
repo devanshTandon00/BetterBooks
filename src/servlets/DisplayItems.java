@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -24,7 +23,8 @@ import model.Book;
 @WebServlet("/DisplayItems")
 public class DisplayItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	ArrayList<Book> bookstore = new ArrayList<>();
+	
     public DisplayItems() {
         super();
     }
@@ -46,23 +46,32 @@ public class DisplayItems extends HttpServlet {
             try {
             	c = new Cookie(request.getParameter("ItemId"), "0000000000001");
             	response.addCookie(c);
-            	pw.print("Product Added to Cart successfully!");  
-//            	bookList.add(new Book(rs.getString(1),rs.getString(2), rs.getInt(3), rs.getDouble(4)));
-
+            	System.out.println("Product Added to Cart successfully!");  
             }
             catch(Exception e) {}
             
-            pw.print("<a href = 'ViewCartItems'>View Cart</a>");
+//            pw.print("<a href = 'ViewCartItems'>View Cart</a>");
+//
+//            pw.print(
+//            		"<table cellpadding = \"20\">\r\n"
+//            		+ "            <tr>\r\n"
+//            		+ "					<td>ISBN</td>\r\n"
+//            		+ "					<td>Title</td>\r\n"
+//            		+ "					<td>Year</td>\r\n"
+//            		+ "					<td>Price</td>\r\n"
+//            		+ "			</tr>"
+//            );
+//            
+            while (rs.next()) 
+            {
+        		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));  
+//        		pw.print("<tr>\r\n"
+//            			
+//            		+ "						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
+//            			+ "	            	</tr><br>"
+//            			);	
+            }
 
-            pw.print(
-            		"<table cellpadding = \"20\">\r\n"
-            		+ "            <tr>\r\n"
-            		+ "					<td>ISBN</td>\r\n"
-            		+ "					<td>Title</td>\r\n"
-            		+ "					<td>Year</td>\r\n"
-            		+ "					<td>Price</td>\r\n"
-            		+ "			</tr>"
-            );
             
 //            System.out.println(bookList.get(0).getTitle());
 //            while (rs.next()) 
@@ -76,7 +85,7 @@ public class DisplayItems extends HttpServlet {
 //            			+ "	            	</tr><br>"
 //            			);	
 //            }
-            pw.print("</table></body></html>");
+//            pw.print("</table></body></html>");
             
 		}
 		catch(Exception e)
@@ -84,8 +93,9 @@ public class DisplayItems extends HttpServlet {
 			pw.print(e);
 		}
 		
-	       request.getRequestDispatcher("bookstore.jsp").forward(request, response);
-
+		request.setAttribute("data", bookstore); 
+		
+	    request.getRequestDispatcher("bookstore.jsp").forward(request, response);
 	         
 	}
 }

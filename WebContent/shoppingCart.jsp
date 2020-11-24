@@ -17,7 +17,7 @@
                 <nav class = "navbar fixed-top">
                     <ul>
                         <li><a href = "../loginPage/login.html">Register</a></li>
-                        <li><a href="bookstore.jsp">Bookstore</a></li>
+                        <li><a href="DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="#">
@@ -38,16 +38,21 @@
 			</tr>
 		
 		<%
-		ArrayList<Book> bookList =  
-            (ArrayList<Book>)request.getAttribute("data"); 
-
+		ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("data"); 
+		Connection con = ConnectDB.connect();
+		
+		String q;
+		PreparedStatement pst;
+        ResultSet rs = null;
+        
 		if(bookList != null){
         for(Book book: bookList){%> 
   			<tr> 
                 <td><%=book.getISBN()%></td> 
                 <td><%=book.getTitle()%></td> 
                 <td><%=book.getYear()%></td> 
-                <td><%=book.getPrice()%></td> 
+                <td><%=book.getPrice()%></td>                 
+                <td><a href = 'ViewCartItems?ItemId=<%=book.getISBN()%>'><strong>Remove From Cart </strong></a></td>
             </tr> 
         	<%} %>
         <% }%>	

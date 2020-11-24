@@ -27,7 +27,7 @@
                 </nav>
             </div>
         </header>
-<!--         <a href = 'ViewCartItems'>View Cart</a> -->
+        <a href = 'ViewCartItems'>View Cart</a>
 		<h1>Welcome to BookStore!</h1>
 	      <table cellpadding = "20">
             <tr>
@@ -36,26 +36,44 @@
 					<td>Year</td>
 					<td>Price</td>
 			</tr>
-			
 			<%
-			Connection con = ConnectDB.connect();
+		ArrayList<Book> bookstore =  (ArrayList<Book>)request.getAttribute("data"); 
+		Connection con = ConnectDB.connect();
+			
+		String q = "select * from books";
+		PreparedStatement pst = con.prepareStatement(q);
+        ResultSet rs = pst.executeQuery();
+		
+		if(bookstore != null){
+        for(Book book: bookstore){%> 
+  			<tr> 
+                <td><%=book.getISBN()%></td> 
+                <td><%=book.getTitle()%></td> 
+                <td><%=book.getYear()%></td> 
+                <td><%=book.getPrice()%></td> 
+                <td><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
+            </tr> 
+        	<%} %>
+        <% }%>	
+<%-- <%-- 			<% --%> 
+<!-- // 			Connection con = ConnectDB.connect(); -->
 
-			String q = "select * from books";
-			PreparedStatement pst = con.prepareStatement(q);
-            ResultSet rs = pst.executeQuery();
+<!-- // 			String q = "select * from books"; -->
+<!-- // 			PreparedStatement pst = con.prepareStatement(q); -->
+<!-- //             ResultSet rs = pst.executeQuery(); -->
             
-			while (rs.next()) 
-            {	
-            	out.println("<tr>\r\n"
-            			+ "		            	<td>" + rs.getString(1) + "</td>\r\n"
-            			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n"
-            			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n"
-            			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n"
-            			+"						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'>Add To Cart </a></td>"
-            			+ "	            	</tr><br>"
-            			);	
-            }
-			%>
+<!-- // 			while (rs.next())  -->
+<!-- //             {	 -->
+<!-- //             	out.println("<tr>\r\n" -->
+<!-- //             			+ "		            	<td>" + rs.getString(1) + "</td>\r\n" -->
+<!-- //             			+ "		            	<td>" + rs.getString(2)+ "</td>\r\n" -->
+<!-- //             			+ "		            	<td>" + rs.getInt(3) + "</td>\r\n" -->
+<!-- //             			+ "		            	<td>" + rs.getDouble(4)+ "</td>\r\n" -->
+<!-- //             			+"						<td><a href = 'DisplayItems?ItemId="+ rs.getString(1) + "'><strong>Add To Cart </strong></a></td>" -->
+<!-- //             			+ "	            	</tr><br>" -->
+<!-- //             			);	 -->
+<!-- //             } -->
+<%-- <%-- 			%> --%> 
    </table>
   </body>
 </html>
