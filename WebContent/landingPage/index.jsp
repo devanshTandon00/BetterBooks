@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link href = '../landingPage/landingPage.css' rel = 'stylesheet'>
+        <link href = 'landingPage.css' rel = 'stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
         <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -11,11 +11,11 @@
                 <h3 class = "projectTitle"><a href = "index.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "../loginPage/login.html">Register</a></li>
-                        <li><a href="bestbooks_eclipse/src/servlets/DisplayItems">Bookstore</a></li>
+                        <li><a href = "loginPage/login.html">Register</a></li>
+                        <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
-                        <li><a href="ViewCartItems">
+                        <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
+                        <li><a href="../ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
                     </ul>
