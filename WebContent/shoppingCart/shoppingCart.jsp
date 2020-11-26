@@ -7,7 +7,10 @@
 <html>
 	<body>
 	<head>
+	        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
+	
 	        <link href = 'landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+	        <link href = 'shoppingCart/cart.css' rel = 'stylesheet' type="text/css">
 	</head>
 		<header> 
             <div class = "container">
@@ -30,31 +33,53 @@
 		<h1>Welcome to Shopping Cart!</h1>
 	      <table cellpadding = "20">
             <tr>
-					<td>ISBN</td>
-					<td>Title</td>
-					<td>Year</td>
-					<td>Price</td>
+					<td class = "header">ISBN</td>
+					<td class = "header">Title</td>
+					<td class = "header">Year</td>
+					<td class = "header">Price</td>
 			</tr>
 		
 		<%
-		ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("data"); 
+		ArrayList<Book> bookList = (ArrayList<Book>)request.getAttribute("data");
+		
+		// we have to create a copy of the arraylist and send that .. since after setting the attribute we cannot do anyother changes 
+		// and we were making changes on bookList OR pass it at the end
+		ArrayList<Book> bookListCopy = new ArrayList<>(bookList);
+// 		session.setAttribute("bookData", bookListCopy);
+
 		Connection con = ConnectDB.connect();
 		
 		String q;
 		PreparedStatement pst;
         ResultSet rs = null;
-        
+        double totalPrice = 0;
+
 		if(bookList != null){
-        for(Book book: bookList){%> 
+        for(Book book: bookList){
+			totalPrice = totalPrice + book.getPrice();
+        %> 
   			<tr> 
-                <td><%=book.getISBN()%></td> 
-                <td><%=book.getTitle()%></td> 
-                <td><%=book.getYear()%></td> 
-                <td><%=book.getPrice()%></td>                 
-                <td><a href = 'ViewCartItems?ItemId=<%=book.getISBN()%>'><strong>Remove From Cart </strong></a></td>
-            </tr> 
+                <td class = "bookInfo"><%=book.getISBN()%></td> 
+                <td class = "bookInfo"><%=book.getTitle()%></td> 
+                <td class = "bookInfo" style = "text-align:center"><%=book.getYear()%></td> 
+                <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td>                 
+                <td class = "bookInfo"><a href = 'ViewCartItems?ItemId=<%=book.getISBN()%>'><strong>Remove From Cart </strong></a></td>
+             </tr>
         	<%} %>
         <% }%>	
-		</table>
+        <tr>
+		<td></td>
+		<td></td>
+		<td style = "font-size: 14pt">Total Price: </td>
+        <td class = "bookInfo" style = "text-align:center">$<%=totalPrice%></td>
+        </tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a href = "checkoutPage/checkout.jsp" class = "checkoutBtn">Checkout</a></td>
+		</tr>
+       </table>
+       <%		session.setAttribute("bookData", bookListCopy); %>
 		</body>
 		</html>

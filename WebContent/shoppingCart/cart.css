@@ -1,1 +1,28 @@
-@charset "ISO-8859-1";
+.checkoutBtn{
+	padding: 10px;
+	border-radius: 5px;
+	padding: 1em 1.5em;
+	box-shadow: 3px 3px 8px 0 #000;
+	border: none;
+	outline: none;
+}
+
+.checkoutBtn:hover{
+	background-color: #D3D3D3;
+	cursor: pointer;
+}
+
+h1{
+		font-style:italic;
+	text-align:center;
+}
+
+.header{
+	font-style:italic;
+	font-weight: bold;
+	font-size: 24pt;	
+}
+
+.bookInfo{
+	font-size: 12pt;
+}

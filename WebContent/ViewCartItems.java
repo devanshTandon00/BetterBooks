@@ -22,7 +22,6 @@ import model.Book;
 @WebServlet("/ViewCartItems")
 public class ViewCartItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     public ViewCartItems() {
         super();
     }
@@ -63,8 +62,11 @@ public class ViewCartItems extends HttpServlet {
         catch(Exception e) {
         	
         }
+        
+        
         	request.setAttribute("data", bookList); 
 	
 	       request.getRequestDispatcher("/shoppingCart/shoppingCart.jsp").forward(request, response);
+        
 	}
 }

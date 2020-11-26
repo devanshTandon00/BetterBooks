@@ -29,7 +29,6 @@ public class DisplayItems extends HttpServlet {
         super();
     }
 
-	int added_cart_product = 0;
 	Cookie c = null;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,15 +53,14 @@ public class DisplayItems extends HttpServlet {
             {
         		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));  
             }
-            
 		}
 		catch(Exception e)
 		{	
 			pw.print(e);
 		}
 		
-		request.setAttribute("data", bookstore); 
-		
-	    request.getRequestDispatcher("/bookstorePage/bookstore.jsp").forward(request, response);     
+			request.setAttribute("data", bookstore); 
+			
+		    request.getRequestDispatcher("/bookstorePage/bookstore.jsp").forward(request, response);     
 	}
 }

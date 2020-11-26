@@ -8,7 +8,9 @@
 <html>
 	<body>
 	<head>
+	        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
 	        <link href = 'landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+	        <link href = 'bookstorePage/bookstore.css' rel = 'stylesheet' type="text/css">
 	</head>
 		<header> 
             <div class = "container">
@@ -31,27 +33,22 @@
 		<h1>Welcome to BookStore!</h1>
 	      <table cellpadding = "20">
             <tr>
-					<td>ISBN</td>
-					<td>Title</td>
-					<td>Year</td>
-					<td>Price</td>
+					<td class = "header">ISBN</td>
+					<td class = "header">Title</td>
+					<td class = "header">Year</td>
+					<td class = "header">Price</td>
 			</tr>
 			<%
-		ArrayList<Book> bookstore =  (ArrayList<Book>)request.getAttribute("data"); 
-// 		Connection con = ConnectDB.connect();
-			
-// 		String q = "select * from books";
-// 		PreparedStatement pst = con.prepareStatement(q);
-//         ResultSet rs = pst.executeQuery();
+		ArrayList<Book> bookstore = (ArrayList<Book>)request.getAttribute("data"); 
 		
 		if(bookstore != null){
         for(Book book: bookstore){%> 
   			<tr> 
-                <td><%=book.getISBN()%></td> 
-                <td><%=book.getTitle()%></td> 
-                <td><%=book.getYear()%></td> 
-                <td><%=book.getPrice()%></td> 
-                <td><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
+                <td class = "bookInfo"><%=book.getISBN()%></td> 
+                <td class = "bookInfo"><%=book.getTitle()%></td> 
+                <td class = "bookInfo" style = "text-align:center"><%=book.getYear()%></td> 
+                <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td> 
+                <td class = "bookInfo"><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
             </tr> 
         	<%} %>
         <% }%>	
