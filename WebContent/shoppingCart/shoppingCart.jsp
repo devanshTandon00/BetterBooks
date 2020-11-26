@@ -80,6 +80,9 @@
 			<td><a href = "checkoutPage/checkout.jsp" class = "checkoutBtn">Checkout</a></td>
 		</tr>
        </table>
-       <%		session.setAttribute("bookData", bookListCopy); %>
+       <%
+       session.setAttribute("totalPrice", totalPrice);
+       session.setAttribute("bookData", bookListCopy);
+       %>
 		</body>
 		</html>

@@ -29,32 +29,28 @@
     </header>    
     
    <h1>RECEIPT</h1>
-	      <table cellpadding = "20">
+   <div class = "table">
+	      <table cellpadding = "10">
             <tr>
-					<td class = "header">ISBN</td>
 					<td class = "header">Title</td>
-					<td class = "header">Year</td>
 					<td class = "header">Price</td>
 			</tr>
 	
-		<%ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");%>
-		<p> You Purchased the following books: </p>
-		
-		<% 
-		if(bookstore == null){
-			System.out.println("Arraylist is empty");
-		}
+		<%ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");
+		double totalPrice = (double)session.getAttribute("totalPrice"); 
 		if(bookstore != null){
 			for(Book book: bookstore){%> 
   			<tr> 
-  			
-                <td class = "bookInfo"><%=book.getISBN()%></td> 
                 <td class = "bookInfo"><%=book.getTitle()%></td> 
-                <td class = "bookInfo" style = "text-align:center"><%=book.getYear()%></td> 
                 <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td> 
             </tr> 
         	<%}
 		}%>
+			<tr>
+			<td style = "font-size: 14pt; text-align:right;">Total Price: </td>
+	        <td class = "bookInfo" style = "text-align:center">$<%=totalPrice%></td>
+        </tr>
 		</table>
+		</div>
 	</body>
 </html>
