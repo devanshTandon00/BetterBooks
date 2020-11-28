@@ -54,8 +54,14 @@
         ResultSet rs = null;
         double totalPrice = 0;
 
+        if(bookList == null){
+        	System.out.println("NULL arraylist");
+        }
 		if(bookList != null){
+        	System.out.println("Not null arraylist");
+		
         for(Book book: bookList){
+        	System.out.println(book.getTitle() + " hello");
 			totalPrice = totalPrice + book.getPrice();
         %> 
   			<tr> 
@@ -82,7 +88,7 @@
        </table>
        <%
        session.setAttribute("totalPrice", totalPrice);
-       session.setAttribute("bookData", bookListCopy);
+       session.setAttribute("bookData", bookList);
        %>
 		</body>
 		</html>

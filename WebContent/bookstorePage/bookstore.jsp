@@ -31,15 +31,23 @@
         </header>
         
 		<h1>Welcome to BookStore!</h1>
+		
+		<select id="mySelect" name="forma" onchange="location = this.value;">
+			<option value="bookstore.jsp?sortBy=default">Sort By</option>
+			<option value="bookstore.jsp?sortBy=costAsc">Cost: Low to High</option>
+			<option value="bookstore.jsp?sortBy=costDes">Cost: High to Low</option>
+		</select>
+		
 	      <table cellpadding = "20">
             <tr>
 					<td class = "header">ISBN</td>
 					<td class = "header">Title</td>
 					<td class = "header">Year</td>
 					<td class = "header">Price</td>
+					<td class = "header">Author</td>
 			</tr>
 			<%
-		ArrayList<Book> bookstore = (ArrayList<Book>)request.getAttribute("data"); 
+		ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("data"); 
 		
 		if(bookstore != null){
         for(Book book: bookstore){%> 
@@ -48,6 +56,9 @@
                 <td class = "bookInfo"><%=book.getTitle()%></td> 
                 <td class = "bookInfo" style = "text-align:center"><%=book.getYear()%></td> 
                 <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td> 
+                <td class = "bookInfo"><%=book.getFirstName() + " "+ book.getLastName()%></td>
+<%-- 				 <td class = "bookInfo"><a href = 'bookstore.jsp?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td> --%>
+                 
                 <td class = "bookInfo"><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
             </tr> 
         	<%} %>

@@ -54,7 +54,7 @@ public class ViewCartItems extends HttpServlet {
         		               
         		while (rs.next()) 
                 {
-            		bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));                	
+        			bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4))); 
                 }
               
         	}

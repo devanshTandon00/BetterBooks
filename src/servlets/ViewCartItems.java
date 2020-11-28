@@ -1,5 +1,6 @@
 package servlets;
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import model.Book;
  * Servlet implementation class ViewCartItems
  */
 @WebServlet("/ViewCartItems")
-public class ViewCartItems extends HttpServlet {
+public class ViewCartItems extends HttpServlet{
 	private static final long serialVersionUID = 1L;
        
     public ViewCartItems() {
@@ -46,15 +47,16 @@ public class ViewCartItems extends HttpServlet {
                 
         try {
         	Cookie ck[] = request.getCookies();
-        	      	
+        	System.out.println(ck.length);
         	for(int i = 1; i < ck.length;i++) {
           		q = "select * from books where ISBN = " + ck[i].getName();
         		pst = con.prepareStatement(q);
         		rs = pst.executeQuery();
         		               
+        		
         		while (rs.next()) 
                 {
-            		bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));                	
+        			bookList.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));  
                 }
               
         	}

@@ -4,6 +4,12 @@ h1{
 	text-align:center;
 }
 
+.mySelect{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
+
 .header{
 	font-style:italic;
 	font-weight: bold;

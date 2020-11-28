@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="model.Book"%> 
+<%@page import="connection.ConnectDB"%> 
 <%@page import="java.util.ArrayList"%> 
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
     
 <!DOCTYPE html>
 <html>
@@ -36,7 +40,16 @@
 					<td class = "header">Price</td>
 			</tr>
 	
-		<%ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");
+		<%
+		Connection con = ConnectDB.connect();
+		
+// 		String q = "UPDATE inventory SET numberOfBooks=0 WHERE ISBN=0000000000001";
+// 		PreparedStatement pst = con.prepareStatement(q);
+//         ResultSet rs = pst.executeQuery();
+
+        
+        
+		ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");
 		double totalPrice = (double)session.getAttribute("totalPrice"); 
 		if(bookstore != null){
 			for(Book book: bookstore){%> 
@@ -44,7 +57,8 @@
                 <td class = "bookInfo"><%=book.getTitle()%></td> 
                 <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td> 
             </tr> 
-        	<%}
+        	<%
+			}
 		}%>
 			<tr>
 			<td style = "font-size: 14pt; text-align:right;">Total Price: </td>

@@ -13,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import connection.ConnectDB;
 import model.Book;
@@ -38,7 +39,8 @@ public class DisplayItems extends HttpServlet {
 		try {
 			Connection con = ConnectDB.connect();
 			
-			String q = "select * from books";
+			String q = "select ISBN, title, year, price, first_name, last_name from books, authors\r\n"
+					+ "where books.author_id = authors.author_id\r\n";
 			PreparedStatement pst = con.prepareStatement(q);
             ResultSet rs = pst.executeQuery();
             
@@ -49,18 +51,20 @@ public class DisplayItems extends HttpServlet {
             }
             catch(Exception e) {}
 
-            while (rs.next()) 
+            while (rs.next() ) 
             {
-        		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4)));  
+            	
+        		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getString(5), rs.getString(6)));  
             }
 		}
 		catch(Exception e)
 		{	
 			pw.print(e);
 		}
-		
-			request.setAttribute("data", bookstore); 
-			
+        HttpSession session=request.getSession();  
+
+			session.setAttribute("data", bookstore); 
+//			response.sendRedirect("bookstorePage/bookstore.jsp");
 		    request.getRequestDispatcher("/bookstorePage/bookstore.jsp").forward(request, response);     
 	}
 }

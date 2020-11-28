@@ -39,7 +39,8 @@ public class DisplayItems extends HttpServlet {
 		try {
 			Connection con = ConnectDB.connect();
 			
-			String q = "select * from books";
+			String q = "select ISBN, title, year, price, first_name, last_name from books, authors\r\n"
+					+ "where books.author_id = authors.author_id\r\n";
 			PreparedStatement pst = con.prepareStatement(q);
             ResultSet rs = pst.executeQuery();
             
