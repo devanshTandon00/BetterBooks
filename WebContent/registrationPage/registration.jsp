@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<head>
+			<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
+	        <link href = '../landingPage/landingPage.css' rel = 'stylesheet' type="text/css">
+		</head>
+		<header> 
+            <div class = "container">
+                <img src = "images/icon-book.svg" class="book-icon">
+                <h3 class = "projectTitle"><a href = "landingPage/index.jsp"> BetterBooks </a></h3>
+                <nav class = "navbar fixed-top">
+                    <ul>
+                        <li><a href = "registrationPage/registration.jsp">Register</a></li>
+                        <li><a href="DisplayItems">Bookstore</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
+                        <li><a href="ViewCartItems">
+                                <img src="images/cart-icon.png" class="cart_icon" width="30" height="25">
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+		<div align="center">
+			<h1>Customer Register Form</h1>
+			<form action="<%= request.getContextPath() %>/register" method="post">
+				<table style="with: 80%">
+					<tr>
+						<td>First Name</td>
+						<td><input type="text" name="firstName" /></td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" name="lastName" /></td>
+					</tr>
+			 		<tr>
+						<td>Address</td>
+						<td><input type="text" name="address" /></td>
+					</tr>
+				</table>
+				<br/>
+				Registration Type: 
+					<input type="radio" name="registerType" value="Customer"> Customer
+					<input type="radio" name="registerType" value="Seller"> Seller
+				<br/><br/>
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+	</body>
+</html>

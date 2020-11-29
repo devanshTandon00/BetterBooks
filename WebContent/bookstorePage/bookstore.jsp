@@ -57,8 +57,6 @@
                 <td class = "bookInfo" style = "text-align:center"><%=book.getYear()%></td> 
                 <td class = "bookInfo" style = "text-align:center">$<%=book.getPrice()%></td> 
                 <td class = "bookInfo"><%=book.getFirstName() + " "+ book.getLastName()%></td>
-<%-- 				 <td class = "bookInfo"><a href = 'bookstore.jsp?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td> --%>
-                 
                 <td class = "bookInfo"><a href = 'DisplayItems?ItemId=<%=book.getISBN()%>'><strong>Add to Cart </strong></a></td>
             </tr> 
         	<%} %>

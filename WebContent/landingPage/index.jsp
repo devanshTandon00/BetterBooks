@@ -11,7 +11,7 @@
                 <h3 class = "projectTitle"><a href = "index.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "../loginPage/login.html">Register</a></li>
+                        <li><a href = "../registrationPage/registration.jsp">Register</a></li>
                         <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
