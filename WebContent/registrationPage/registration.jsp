@@ -2,10 +2,6 @@
  pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
-	</head>
 	<body>
 		<head>
 			<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
@@ -13,7 +9,7 @@
 		</head>
 		<header> 
             <div class = "container">
-                <img src = "images/icon-book.svg" class="book-icon">
+                <img src = "../images/icon-book.svg" class="book-icon">
                 <h3 class = "projectTitle"><a href = "landingPage/index.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
@@ -22,7 +18,7 @@
                         <li><a href="#">About</a></li>
                         <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="ViewCartItems">
-                                <img src="images/cart-icon.png" class="cart_icon" width="30" height="25">
+                                <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
                     </ul>
                 </nav>
@@ -30,8 +26,13 @@
         </header>
 		<div align="center">
 			<h1>Customer Register Form</h1>
-			<form action="<%= request.getContextPath() %>/register" method="post">
+			<form action="<%= request.getContextPath() %>/registerCustomer" method="post">
 				<table style="with: 80%">
+					<tr>
+						<td>Username</td>
+						<td><label> <input type="text" name="username" />
+						</label></td>
+					</tr>
 					<tr>
 						<td>First Name</td>
 						<td><input type="text" name="firstName" /></td>
@@ -46,10 +47,10 @@
 					</tr>
 				</table>
 				<br/>
-				Registration Type: 
-					<input type="radio" name="registerType" value="Customer"> Customer
-					<input type="radio" name="registerType" value="Seller"> Seller
-				<br/><br/>
+<!-- 				Registration Type:  -->
+<!-- 					<input type="radio" name="registerType" value="Customer"> Customer -->
+<!-- 					<input type="radio" name="registerType" value="Seller"> Seller -->
+<!-- 				<br/><br/> -->
 				<input type="submit" value="Submit" />
 			</form>
 		</div>

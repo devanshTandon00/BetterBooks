@@ -11,7 +11,7 @@
                 <h3 class = "projectTitle"><a href = "index.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "../loginPage/login.jsp">Register</a></li>
+<!--                     	<li><a href = "index.jsp">Logout</a></li> -->
                         <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
@@ -26,6 +26,9 @@
         </header>
 
         <div class = "inputBox">
+        	<form action ="<%=request.getContextPath()%>/logout">
+        		<input type = "submit" value = "Logout">
+        	</form>
             <input type = "search" placeholder="Enter book name ...." class = "searchBox"> 
             <i class="fa fa-search" aria-hidden="true"></i>
         </div>
