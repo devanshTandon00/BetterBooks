@@ -61,18 +61,18 @@ public class LoginDao {
 			ResultSet rs = checkOwner.executeQuery();
 			if (rs.next()) {
 				type = "Customer";
+			} 
+			else {
+				PreparedStatement checkOperator = con
+						.prepareStatement("SELECT * FROM sellers WHERE seller_id = ?");
+				checkOperator.setInt(1, id);
+				ResultSet rs2 = checkOperator.executeQuery();
+				if (rs2.next()) {
+					type = "Seller";
+				} else {
+					type = "Customer";
+				}
 			}
-//			else {
-//				PreparedStatement checkOperator = con
-//						.prepareStatement("SELECT * FROM parkingsolution.Operator WHERE User_Id = ?");
-//				checkOperator.setInt(1, id);
-//				ResultSet rs2 = checkOperator.executeQuery();
-//				if (rs2.next()) {
-//					type = "Operator";
-//				} else {
-//					type = "Customer";
-//				}
-//			}
 		}
 		return type;
 	}

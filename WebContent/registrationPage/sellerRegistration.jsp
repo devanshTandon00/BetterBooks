@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
  pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<!-- CUSTOMER REGISTER -->
+<!-- SELLER REGISTER -->
 <html>
 	<body>
 		<head>
@@ -26,8 +26,8 @@
             </div>
         </header>
 		<div class = "form">
-			<h1>Customer Register Form</h1>
-			<form action="<%= request.getContextPath() %>/registerCustomer" method="post">
+			<h1>Seller Register Form</h1>
+			<form action="<%= request.getContextPath() %>/registerSeller" method="post">
 				<table style="with: 80%">
 					<tr>
 						<td>Username: </td>

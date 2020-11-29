@@ -19,7 +19,6 @@ public class CustomerDao
                 try (Connection con = ConnectDB.connect();) 
                 {
                 	PreparedStatement preparedStatement = con.prepareStatement(insertCustomer);
-//                	preparedStatement.setInt(1, 16);
                     preparedStatement.setString(1, customer.getFirstName());
                     preparedStatement.setString(2, customer.getLastName());
                     preparedStatement.setString(3, customer.getAddress());
@@ -29,7 +28,6 @@ public class CustomerDao
                 } 
                 catch (SQLException e) 
                 {
-                    //printSQLException(e);
                 	e.printStackTrace();
                 }
                 return result;

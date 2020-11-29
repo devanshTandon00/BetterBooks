@@ -44,18 +44,17 @@ public class login extends HttpServlet {
 				if (userType.equals("Customer")) {
 					response.sendRedirect("landingPage/customerLandingPage.jsp");
 				} 
-//				else if (userType.equals("Operator")) {
-//					response.sendRedirect("Dashboards/operatorDashboard.jsp");
-//				} else {
-//					response.sendRedirect("Dashboards/customerDashboard.jsp");
-//				}
+				else if (userType.equals("Seller")) {
+					response.sendRedirect("landingPage/customerLandingPage.jsp");
+				} else {
+					response.sendRedirect("landingPage/customerLandingPage.jsp");
+				}
 			} else {
 				response.sendRedirect("loginPage/login.jsp");
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
--- Host: localhost    Database: cs157aprojectteam3
+-- Host: 127.0.0.1    Database: team3bookshop
 -- ------------------------------------------------------
 -- Server version	8.0.21
 
@@ -23,11 +23,12 @@ DROP TABLE IF EXISTS `sellers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sellers` (
-  `seller_id` int NOT NULL,
+  `seller_id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
+  `address` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`seller_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +37,7 @@ CREATE TABLE `sellers` (
 
 LOCK TABLES `sellers` WRITE;
 /*!40000 ALTER TABLE `sellers` DISABLE KEYS */;
-INSERT INTO `sellers` VALUES (1,'SUMAIYAH','DONNELLY'),(2,'KYNAN','CABRERA'),(3,'LAYLA-ROSE','FARLEY'),(4,'ALLISON','ROWLEY'),(5,'LILIANA','OROZCO'),(6,'KRISTOFER','HACKETT'),(7,'INAAYA','WHITAKER'),(8,'ARAN','WARDLE'),(9,'SELENA','MERCADO'),(10,'JEANNE','HUFFMAN'),(11,'JOSEPHINE','WILEY'),(12,'FFION','LORD'),(13,'NATANIEL','LEACH'),(14,'KAIRA','IRELAND'),(15,'JENNIE','MONTGOMERY');
+INSERT INTO `sellers` VALUES (1,'SUMAIYAH','DONNELLY',NULL),(2,'KYNAN','CABRERA',NULL),(3,'LAYLA-ROSE','FARLEY',NULL),(4,'ALLISON','ROWLEY',NULL),(5,'LILIANA','OROZCO',NULL),(6,'KRISTOFER','HACKETT',NULL),(7,'INAAYA','WHITAKER',NULL),(8,'ARAN','WARDLE',NULL),(9,'SELENA','MERCADO',NULL),(10,'JEANNE','HUFFMAN',NULL),(11,'JOSEPHINE','WILEY',NULL),(12,'FFION','LORD',NULL),(13,'NATANIEL','LEACH',NULL),(14,'KAIRA','IRELAND',NULL),(15,'JENNIE','MONTGOMERY',NULL),(16,'Seller16','Seller16','Montgomery Av');
 /*!40000 ALTER TABLE `sellers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 17:38:13
+-- Dump completed on 2020-11-29 23:54:31
