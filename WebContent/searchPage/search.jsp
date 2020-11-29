@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
+<%
+if(session.getAttribute("username") == null){
+	response.sendRedirect("../loginPage/login.jsp");
+}
+%>
 
 </body>
 </html>

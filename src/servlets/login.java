@@ -37,7 +37,7 @@ public class login extends HttpServlet {
 		try {
 			if (loginDao.validate(customer)) {
 				HttpSession session = request.getSession();
-				session.setAttribute("uname", firstName);
+				session.setAttribute("username", firstName);
 				
 				String userType = loginDao.getLoginType(firstName);
 				System.out.println(userType);

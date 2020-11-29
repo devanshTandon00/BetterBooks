@@ -1,6 +1,12 @@
 <%@ page import="java.sql.*"%>
 <html>
 	<body>
+	<% 
+	if(session.getAttribute("username") == null){
+		response.sendRedirect("../loginPage/login.jsp");
+	}
+	%>
+		
 	<head>
 	        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
 	
