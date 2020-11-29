@@ -15,9 +15,11 @@
                         <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
+                          <li><a href = "../searchPage/search.jsp">Search</a></li>
                         <li><a href="../ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
+                      
                     </ul>
                 </nav>
             </div>
