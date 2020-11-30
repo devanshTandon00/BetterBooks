@@ -9,7 +9,7 @@
 	<body>
 	<%
 		if(session.getAttribute("username") == null){
-			response.sendRedirect("../loginPage/login.jsp");
+			response.sendRedirect("loginPage/login.jsp");
 		}
 	%>
 	<head>
@@ -20,12 +20,12 @@
 		<header> 
             <div class = "container">
                 <img src = "images/icon-book.svg" class="book-icon">
-                <h3 class = "projectTitle"><a href = "landingPage/index.jsp"> BetterBooks </a></h3>
+                <h3 class = "projectTitle"><a href = "landingPage/customerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "loginPage/login.html">Register</a></li>
+<!--                         <li><a href = "loginPage/login.jspl">Register</a></li> -->
                         <li><a href="DisplayItems">Bookstore</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="aboutPage/about.jsp">About</a></li>
                         <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="ViewCartItems">
                                 <img src="images/cart-icon.png" class="cart_icon" width="30" height="25">
@@ -36,13 +36,7 @@
         </header>
         
 		<h1>Welcome to BookStore!</h1>
-		
-		<select id="mySelect" name="forma" onchange="location = this.value;">
-			<option value="bookstore.jsp?sortBy=default">Sort By</option>
-			<option value="bookstore.jsp?sortBy=costAsc">Cost: Low to High</option>
-			<option value="bookstore.jsp?sortBy=costDes">Cost: High to Low</option>
-		</select>
-		
+	
 	      <table cellpadding = "20">
             <tr>
 					<td class = "header">ISBN</td>

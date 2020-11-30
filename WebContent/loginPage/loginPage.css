@@ -1,3 +1,54 @@
+:root {
+  --submit_hover: #027a1c;
+  --icon_color: #6b6b6b;
+  --body_gradient_left: #7200d0;
+  --input_bg: #e5e5e5;
+  --input_hover: #eaeaea;
+}
+
+body {
+  margin: 0;
+  background-image: radial-gradient(
+    var(--body_gradient_left),
+    var(--submit_hover)
+  );
+  overflow-x: hidden;
+}
+
+h1{
+	font-size: 28pt;
+}
+a {
+  text-decoration: none;
+  color: var(--submit_bg);
+}
+
+input{
+	padding: 10px;
+	outline:none;
+	
+}
+
+input:hover{
+	background-color: var(--input_hover);
+	cursor: pointer;
+	transition: background-color, 1s;
+}
+
+.buttonA{
+	padding: 7px;
+	border-radius:7px;
+	outline:none;
+	border:none;
+}
+
+.buttonA:hover {
+  color: red;
+}
+
+label{
+	font-size: 16pt;
+}
 /* :root { */
 /*   --body_gradient_left: #7200d0; */
 /*   --body_gradient_right: #aa9aaa; */

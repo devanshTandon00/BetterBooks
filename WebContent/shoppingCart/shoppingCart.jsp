@@ -6,6 +6,10 @@
 
 <html>
 	<body>
+	<%	if(session.getAttribute("username") == null){
+		response.sendRedirect("loginPage/login.jsp");
+	}
+ %>
 	<head>
 	        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
 	
@@ -15,12 +19,11 @@
 		<header> 
             <div class = "container">
                 <img src = "images/icon-book.svg" class="book-icon">
-                <h3 class = "projectTitle"><a href = "landingPage/index.jsp"> BetterBooks </a></h3>
+                <h3 class = "projectTitle"><a href = "landingPage/customerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "loginPage/login.html">Register</a></li>
                         <li><a href="DisplayItems">Bookstore</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="../aboutPage/about.jsp">About</a></li>
                         <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="ViewCartItems">
                                 <img src="images/cart-icon.png" class="cart_icon" width="30" height="25">

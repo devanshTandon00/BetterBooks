@@ -76,7 +76,27 @@ header::after {
 .inputBox {
   display: flex;
   justify-content: center;
-  padding: 80px;
+  padding-bottom: 80px;
+}
+
+.greeting{
+	display: flex;
+  	justify-content: center;
+  	padding-top: 80px;
+}
+
+.greetingHead{
+	margin: 0;
+    padding-right: 10px;
+	text-decoration: overline;
+	font-style: italic;
+}
+
+.logout{
+	padding: 7px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
 }
 
 .searchBox {

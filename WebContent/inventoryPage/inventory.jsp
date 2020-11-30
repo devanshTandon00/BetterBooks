@@ -17,12 +17,12 @@
 		<header> 
             <div class = "container">
                 <img src = "../images/icon-book.svg" class="book-icon">
-                <h3 class = "projectTitle"><a href = "../landingPage/index.jsp"> BetterBooks </a></h3>
+                <h3 class = "projectTitle"><a href = "../landingPage/customerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href = "../loginPage/login.html">Register</a></li>
+<!--                         <li><a href = "../loginPage/login.html">Register</a></li> -->
                         <li><a href="../DisplayItems">Bookstore</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="../aboutPage/about.jsp">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="../ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
@@ -31,7 +31,7 @@
                 </nav>
             </div>
         </header>
-		<h1>Welcome to Inventory!</h1>
+		<h1 style = "font-size:24pt; font-style:italic">Welcome to Inventory!</h1>
 		
     <%
     	String db = "team3bookshop";
@@ -51,21 +51,21 @@
             String queryString = "SELECT ISBN, numberOfBooks FROM team3bookshop.inventory";
             ResultSet rs = stmt.executeQuery(queryString);
             %>
-            <table cellpadding = "20">
+            <table cellpadding = "20" style = "margin: 0px auto;">
             <tr>
-					<td>ISBN</td>
-					<td>Number of Books</td>
+					<td style = "font-style:italic;	font-weight: bold;font-size: 18pt;">ISBN</td>
+<!-- 					<td style = "font-style:italic;	font-weight: bold;font-size: 24pt;">Title</td> -->
+					<td style = "font-style:italic;	font-weight: bold;font-size: 18pt;">Number of Books</td>
 			</tr>
             <%
             while (rs.next()) 
             {
             %>	
-            	<tbody class = "info" style = "width: 100%;">
 	            	<tr>
-		            	<td><%=rs.getString(1)%></td>
-		            	<td><%=rs.getInt(2)%></td>
-	            	</tr>    
-            	</tbody>   	
+		            	<td style = "font-size: 12pt;"><%=rs.getString(1)%></td>
+<%-- 		            	<td style = "font-size: 12pt;"><%=rs.getString(2)%></td> --%>
+		            	<td style = "font-size: 12pt;"><%=rs.getInt(2)%></td>
+	            	</tr>    	
             <% } %>
 <%      
             rs.close();
