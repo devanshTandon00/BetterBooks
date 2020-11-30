@@ -10,19 +10,32 @@ import java.sql.SQLException;
 import connection.ConnectDB;
 
 public class LoginDao {
-	public boolean validate(Customer customer) throws ClassNotFoundException, SQLException {
+	public boolean validate(String firstName, String lastName) throws ClassNotFoundException, SQLException {
 		boolean status = false;
 
 		try (Connection con = ConnectDB.connect();) {
 			PreparedStatement preparedStatement =
 					con.prepareStatement("select * from team3bookshop.customer where first_name = ? and last_name = ? ");
 			
-			preparedStatement.setString(1, customer.getFirstName());
-			preparedStatement.setString(2, customer.getLastName());
+			preparedStatement.setString(1, firstName);
+			preparedStatement.setString(2, lastName);
 
 			System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
 			status = rs.next();
+			
+			if(!status) {
+				PreparedStatement preparedStatement2 =
+						con.prepareStatement("select * from team3bookshop.sellers where first_name = ? and last_name = ? ");
+				
+				preparedStatement2.setString(1, firstName);
+				preparedStatement2.setString(2, lastName);
+
+				System.out.println(preparedStatement2);
+				ResultSet rs1 = preparedStatement2.executeQuery();
+				status = rs1.next();
+			}
+			
 			System.out.println(status);
 		}
 		catch(Exception e) {
@@ -63,15 +76,7 @@ public class LoginDao {
 				type = "Customer";
 			} 
 			else {
-				PreparedStatement checkOperator = con
-						.prepareStatement("SELECT * FROM sellers WHERE seller_id = ?");
-				checkOperator.setInt(1, id);
-				ResultSet rs2 = checkOperator.executeQuery();
-				if (rs2.next()) {
-					type = "Seller";
-				} else {
-					type = "Customer";
-				}
+				type = "Seller";
 			}
 		}
 		return type;

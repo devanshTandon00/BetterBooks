@@ -36,8 +36,8 @@
 // 			}
 			
 			if(queryString != null){
-				preparedStatement.setString(1, queryString);
-				preparedStatement.setString(2, queryString);
+				preparedStatement.setString(1, "%" + queryString + "%");
+				preparedStatement.setString(2, "%" + queryString + "%");
 				ResultSet rs = preparedStatement.executeQuery();
 			}
 			System.out.println(preparedStatement);

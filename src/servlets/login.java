@@ -32,10 +32,9 @@ public class login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("username");
 		String lastName= request.getParameter("password");
-		Customer customer = new Customer(firstName, lastName);
 		
 		try {
-			if (loginDao.validate(customer)) {
+			if (loginDao.validate(firstName, lastName)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", firstName);
 				
@@ -44,9 +43,7 @@ public class login extends HttpServlet {
 				if (userType.equals("Customer")) {
 					response.sendRedirect("landingPage/customerLandingPage.jsp");
 				} 
-				else if (userType.equals("Seller")) {
-					response.sendRedirect("landingPage/customerLandingPage.jsp");
-				} else {
+				else {
 					response.sendRedirect("landingPage/customerLandingPage.jsp");
 				}
 			} else {
