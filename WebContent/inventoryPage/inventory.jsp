@@ -20,7 +20,6 @@
                 <h3 class = "projectTitle"><a href = "../landingPage/customerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-<!--                         <li><a href = "../loginPage/login.html">Register</a></li> -->
                         <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="../aboutPage/about.jsp">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
@@ -48,13 +47,14 @@
 
             //out.println("Initial entries in table hw1: <br/>");
             Statement stmt = con.createStatement();
-            String queryString = "SELECT ISBN, numberOfBooks FROM team3bookshop.inventory";
+            String queryString = 
+            		"SELECT books.ISBN, books.title, numberOfBooks FROM books, inventory where books.ISBN = inventory.ISBN ";
             ResultSet rs = stmt.executeQuery(queryString);
             %>
             <table cellpadding = "20" style = "margin: 0px auto;">
             <tr>
 					<td style = "font-style:italic;	font-weight: bold;font-size: 18pt;">ISBN</td>
-<!-- 					<td style = "font-style:italic;	font-weight: bold;font-size: 24pt;">Title</td> -->
+					<td style = "font-style:italic;	font-weight: bold;font-size: 24pt;">Title</td>
 					<td style = "font-style:italic;	font-weight: bold;font-size: 18pt;">Number of Books</td>
 			</tr>
             <%
@@ -63,8 +63,8 @@
             %>	
 	            	<tr>
 		            	<td style = "font-size: 12pt;"><%=rs.getString(1)%></td>
-<%-- 		            	<td style = "font-size: 12pt;"><%=rs.getString(2)%></td> --%>
-		            	<td style = "font-size: 12pt;"><%=rs.getInt(2)%></td>
+		            	<td style = "font-size: 12pt;"><%=rs.getString(2)%></td>
+		            	<td style = "font-size: 12pt;"><%=rs.getInt(3)%></td>
 	            	</tr>    	
             <% } %>
 <%      

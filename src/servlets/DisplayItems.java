@@ -53,7 +53,6 @@ public class DisplayItems extends HttpServlet {
 
             while (rs.next() ) 
             {
-            	
         		bookstore.add(new Book(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getString(5), rs.getString(6)));  
             }
 		}

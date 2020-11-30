@@ -23,7 +23,6 @@
                 <h3 class = "projectTitle"><a href = "landingPage/customerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-<!--                         <li><a href = "loginPage/login.jspl">Register</a></li> -->
                         <li><a href="DisplayItems">Bookstore</a></li>
                         <li><a href="aboutPage/about.jsp">About</a></li>
                         <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
