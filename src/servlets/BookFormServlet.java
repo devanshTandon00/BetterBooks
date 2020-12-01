@@ -43,7 +43,8 @@ public class BookFormServlet extends HttpServlet
 		double price = Double.parseDouble(request.getParameter("price"));
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
-		Book book = new Book(ISBN, title, year, price, firstName, lastName);
+		int authorID = Integer.parseInt(request.getParameter("authorID"));
+		Book book = new Book(ISBN, title, year, price, firstName, lastName, authorID);
 		System.out.println("DopostActibe");
 		try 
 		{

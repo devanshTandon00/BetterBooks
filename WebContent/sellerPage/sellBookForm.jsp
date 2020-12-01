@@ -36,8 +36,12 @@
 						<td><input type="text" name="firstName" class = "textfield"/></td>
 					</tr>
 					<tr>
-						<td>Author First Name: </td>
+						<td>Author Last Name: </td>
 						<td><input type="text" name="lastName" class = "textfield"/></td>
+					</tr>
+					<tr>
+						<td>Author ID: </td>
+						<td><input type="text" name="authorID" class = "textfield"/></td>
 					</tr>
 			 		<tr>
 						<td>Year Book Published: </td>
@@ -51,6 +55,7 @@
 						<td>Book Price: </td>
 						<td><input type="text" name="price" class = "textfield"/></td>
 					</tr>
+					
 				</table>
 				<br/>
 				<input type="submit" value="Submit" class = "button"/>
