@@ -24,7 +24,7 @@
                 <nav class = "navbar fixed-top">
                     <ul>
                         <li><a href="DisplayItems">Bookstore</a></li>
-                        <li><a href="aboutPage/about.jsp">About</a></li>
+                        <li><a href="aboutPage/aboutCustomer.jsp">About</a></li>
                         <li><a href="inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="ViewCartItems">
                                 <img src="images/cart-icon.png" class="cart_icon" width="30" height="25">

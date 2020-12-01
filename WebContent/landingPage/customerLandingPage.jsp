@@ -12,7 +12,7 @@
                 <nav class = "navbar fixed-top">
                     <ul>
                         <li><a href="../DisplayItems">Bookstore</a></li>
-                        <li><a href="../aboutPage/about.jsp">About</a></li>
+                        <li><a href="../aboutPage/aboutCustomer.jsp">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
                         <li><a href="../ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
@@ -32,7 +32,12 @@
         
 		<div class = "inputBox">
         	<form class="search" action="../searchPage/search.jsp?sortBy=default">
-        		<input type="text" placeholder="Search for book...." name="search" class = "searchBox" style = "width:100%">
+        		<input type="text" placeholder="Search by title...." name="search" class = "searchBox" style = "width:100%">
+        		<input type="hidden" name="sortBy" value="default">
+        	</form>
+        	
+        	<form class="searchByAuthor" action="../searchPage/searchByAuthor.jsp?sortBy=default">
+        		<input type="text" placeholder="Search by author...." name="searchByAuthor" class = "searchBox" style = "width:100%">
         		<input type="hidden" name="sortBy" value="default">
         	</form>
         </div>

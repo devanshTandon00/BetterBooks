@@ -7,7 +7,7 @@
     <body>
         <header> 
             <div class = "container">
-                <img src = "../images/icon-book.svg" class="book-icon">
+	                <img src = "../images/icon-book.svg" class="book-icon">
                 <h3 class = "projectTitle"><a href = "sellerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
