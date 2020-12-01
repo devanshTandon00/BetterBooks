@@ -27,7 +27,7 @@
         </header>
 		<div class = "form">
 			<h1>Seller Book Selling Form</h1>
-			<form action="<%= request.getContextPath() %>/registerCustomer" method="post">
+			<form action="<%= request.getContextPath() %>/bookForm" method="post">
 				<table style="with: 80%">
 					<tr>
 						<td>Book Title: </td>

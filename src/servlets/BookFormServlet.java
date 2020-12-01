@@ -12,11 +12,12 @@ import dao.BookFormDao;
 import model.Book;
 
 /**
- * Servlet implementation class SellerRegisterServlet
+ * Servlet implementation class BookFormServlet
  */
-@WebServlet("/registerSeller")
+@WebServlet("/bookForm")
 public class BookFormServlet extends HttpServlet 
 {
+	
 	private static final long serialVersionUID = 1L;
     private BookFormDao bookFormDao;
     
