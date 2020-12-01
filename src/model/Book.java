@@ -11,7 +11,16 @@ public class Book {
 		this.title = title;
 		this.price = price;
 	}
-	
+	public Book(String ISBN, String title, int year, double price, String firstName, String lastName)
+	{
+		super();
+		this.ISBN = ISBN;
+		this.year = year;
+		this.title = title;
+		this.price = price;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	public Book(String ISBN, String title, int year, double price, String firstName, String lastName, int authorID) {
 		super();
 		this.ISBN = ISBN;
