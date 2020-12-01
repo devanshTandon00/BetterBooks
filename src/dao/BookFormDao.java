@@ -16,6 +16,7 @@ public class BookFormDao
 	    String insertAuthor = "INSERT INTO authors" +
 	            "  (first_name, last_name) VALUES " + " (?, ?);";
 	    int result = 0;
+	    int result2 = 0;
 	    try (Connection con = ConnectDB.connect();) 
         {
         	PreparedStatement preparedStatement = con.prepareStatement(insertBook);
@@ -29,6 +30,8 @@ public class BookFormDao
 
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();
+            System.out.println(preparedStatement2);
+            result2 = preparedStatement2.executeUpdate();
         } 
         catch (SQLException e) 
         {
