@@ -31,7 +31,7 @@
 				<table style="with: 80%">
 					<tr>
 						<td>Book Title: </td>
-						<td><label> <input type="text" name="title" class = "textfield"/>
+						<td><label> <input type="text" name="username" class = "textfield"/>
 						</label></td>
 					</tr>
 					<tr>
@@ -44,15 +44,15 @@
 					</tr>
 			 		<tr>
 						<td>Year Book Published: </td>
-						<td><input type="text" name="year" class = "textfield"/></td>
+						<td><input type="text" name="address" class = "textfield"/></td>
 					</tr>
 					<tr>
 						<td>Book ISBN Number: </td>
-						<td><input type="text" name="ISBN" class = "textfield"/></td>
+						<td><input type="text" name="address" class = "textfield"/></td>
 					</tr>
 					<tr>
 						<td>Book Price: </td>
-						<td><input type="text" name="price" class = "textfield"/></td>
+						<td><input type="text" name="address" class = "textfield"/></td>
 					</tr>
 				</table>
 				<br/>
