@@ -26,12 +26,10 @@
         	</form>
         </div>
         
-        <div class = "inputBox">
-            <input type = "search" placeholder="Enter book name ...." class = "searchBox"> 
-            <i class="fa fa-search" aria-hidden="true"></i>
+        <div style = "padding: 25px;">
         </div>
-
-        <div class = "bookSection">
+        
+          <div class = "bookSection">
             <img src="../images/book.png" class = "bookIMG">
             <img src="../images/book_1.jpg" class = "bookIMG">
             <img src="../images/book_2.jpg" class = "bookIMG">

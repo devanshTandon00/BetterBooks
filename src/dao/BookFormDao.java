@@ -16,7 +16,7 @@ public class BookFormDao
 	    String insertAuthor = "INSERT INTO authors" +
 	            "  (first_name, last_name) VALUES " + " (?, ?);";
 	    String insertInventory = "INSERT INTO inventory" +
-	            "  (ISBN, numberOfBooks) VALUES " + " (?, ?);";
+	            "  (ISBN) VALUES " + " (?);";
 	    int result = 0;
 	    int result2 = 0;
 	    int result3 = 0;
@@ -35,7 +35,7 @@ public class BookFormDao
 
         	PreparedStatement preparedStatement3 = con.prepareStatement(insertInventory);
         	preparedStatement3.setString(1,book.getISBN());
-        	            
+        	
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();
             
