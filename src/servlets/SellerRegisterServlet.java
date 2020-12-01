@@ -49,7 +49,7 @@ public class SellerRegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("landingPage/customerLandingPage.jsp");
+		response.sendRedirect("landingPage/sellerLandingPage.jsp");
 	}
 
 }
