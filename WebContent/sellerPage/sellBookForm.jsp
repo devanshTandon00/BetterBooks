@@ -55,6 +55,10 @@
 						<td>Book Price: </td>
 						<td><input type="text" name="price" class = "textfield"/></td>
 					</tr>
+					<tr>
+						<td>Number of Books: </td>
+						<td><input type="text" name="numBooks" class = "textfield"/></td>
+					</tr>
 					
 				</table>
 				<br/>

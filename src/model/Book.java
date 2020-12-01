@@ -1,7 +1,7 @@
 package model;
 
 public class Book {
-	private int year, authorID;
+	private int year, authorID, numBooks;
 	private String title, ISBN, firstName, lastName;
 	private double price;
 	public Book(String ISBN, String title, int year, double price) {
@@ -23,7 +23,7 @@ public class Book {
 		this.lastName = lastName;
 	}
 
-	public Book(String ISBN, String title, int year, double price, String firstName, String lastName, int authorID) {
+	public Book(String ISBN, String title, int year, double price, String firstName, String lastName, int authorID, int numBooks) {
 		super();
 		this.ISBN = ISBN;
 		this.year = year;
@@ -32,8 +32,17 @@ public class Book {
 		this.firstName = firstName;
 		this.authorID = authorID;
 		this.lastName = lastName;
+		this.numBooks = numBooks;
 	}
 	
+	public int getNumBooks() {
+		return numBooks;
+	}
+
+	public void setNumBooks(int numBooks) {
+		this.numBooks = numBooks;
+	}
+
 	public int getAuthorID() {
 		return authorID;
 	}

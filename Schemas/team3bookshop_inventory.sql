@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
--- Host: localhost    Database: cs157aprojectteam3
+-- Host: 127.0.0.1    Database: team3bookshop
 -- ------------------------------------------------------
 -- Server version	8.0.21
 
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `inventory`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventory` (
-  `ISBN` varchar(45) NOT NULL,
+  `inventory_id` int NOT NULL AUTO_INCREMENT,
   `numberOfBooks` int DEFAULT NULL,
-  `inventory_id` varchar(45) NOT NULL,
-  PRIMARY KEY (`ISBN`,`inventory_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `ISBN` varchar(45) NOT NULL,
+  PRIMARY KEY (`inventory_id`,`ISBN`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES ('0000000000001',3,'1'),('0000000000002',10,'2'),('0000000000003',15,'3'),('0000000000004',5,'4'),('0000000000005',9,'5'),('0000000000006',9,'6'),('0000000000007',13,'7'),('0000000000008',15,'8'),('0000000000009',12,'9'),('0000000000010',7,'10'),('0000000000011',16,'11'),('0000000000012',17,'12'),('0000000000013',4,'13'),('0000000000014',16,'14'),('0000000000015',18,'15');
+INSERT INTO `inventory` VALUES (1,3,'0000000000001'),(2,10,'0000000000002'),(3,15,'0000000000003'),(4,5,'0000000000004'),(5,9,'0000000000005'),(6,9,'0000000000006'),(7,13,'0000000000007'),(8,15,'0000000000008'),(9,12,'0000000000009'),(10,7,'0000000000010'),(11,16,'0000000000011'),(12,17,'0000000000012'),(13,4,'0000000000013'),(14,16,'0000000000014'),(15,18,'0000000000015');
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 17:38:14
+-- Dump completed on 2020-12-01 23:29:58
