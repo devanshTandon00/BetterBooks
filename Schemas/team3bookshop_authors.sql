@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
--- Host: localhost    Database: cs157aprojectteam3
+-- Host: 127.0.0.1    Database: team3bookshop
 -- ------------------------------------------------------
 -- Server version	8.0.21
 
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `authors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `authors` (
-  `author_id` int NOT NULL,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
+  `author_id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `authors` (
 
 LOCK TABLES `authors` WRITE;
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
-INSERT INTO `authors` VALUES (1,'JRR','TOLKIEN'),(2,'JK','ROWLING'),(3,'CS','LEWIS'),(4,'DAN','BROWN'),(5,'JD','SALINGER'),(6,'LUCY MAUD','MONTGOMERY'),(7,'RICHARD','ADAMS'),(8,'EB','WHITE'),(9,'HARPER','LEE'),(10,'GEORGE','ORWELL'),(11,'SUZANNE','COLLINS'),(12,'STEPHEN','HAWKING'),(13,'JOHN','GREEN'),(14,'JIANG','RONG'),(15,'MARK','TWAIN');
+INSERT INTO `authors` VALUES (1,'JRR','TOLKIEN'),(2,'JK','ROWLING'),(3,'CS','LEWIS'),(4,'DAN','BROWN'),(5,'JD','SALINGER'),(6,'LUCY MAUD','MONTGOMERY'),(7,'RICHARD','ADAMS'),(8,'EB','WHITE'),(9,'HARPER','LEE'),(10,'GEORGE','ORWELL'),(11,'SUZANNE','COLLINS'),(12,'STEPHEN','HAWKING'),(13,'JOHN','GREEN'),(14,'JIANG','RONG'),(15,'MARK','TWAIN'),(16,'John','Wick'),(17,'0000000000020','Midterm Exam'),(18,'Devtt','Devansh');
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 17:38:14
+-- Dump completed on 2020-12-01 13:11:19

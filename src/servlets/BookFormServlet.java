@@ -48,9 +48,6 @@ public class BookFormServlet extends HttpServlet
 		try 
 		{
 			bookFormDao.registerBook(book);
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("username", firstName);
 		} 
 		catch (ClassNotFoundException e) 
 		{
