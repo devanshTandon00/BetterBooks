@@ -48,10 +48,14 @@
 					</tr>
 				</table>
 				<br/>
-				<input type="submit" value="Submit" class = "button"/>
+				<input type="submit" value="Submit" class = "button" onClick = "myFunction()"/>
 			</form>
-							
-			
 		</div>
+		<script>
+		function myFunction() {
+			alert("Added a customer!" );
+		}		
+		</script>
+		
 	</body>
 </html>
