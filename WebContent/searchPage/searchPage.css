@@ -8,17 +8,25 @@
 
 body {
   margin: 0;
-  background-image: linear-gradient(
+  background-image: radial-gradient(
     var(--body_gradient_left),
     var(--submit_hover)
   );
   overflow-x: hidden;
 }
 
+.projectTitle{
+	font-size: 28pt;
+	padding: 12px 0px 0px 20px;
+	text-decoration:none;
+	font-family: "Cinzel", serif;
+	color: black;
+	font-weight: bold;
+}
 select{
 	position: absolute;
     left: 55%;
-    top: 5%;
+    top: 8%;
 }
 
 .header{
@@ -32,4 +40,5 @@ h2{
 	font-size: 24pt;
 	font-style:italic;
 	font-weight: bold;
+	margin: 0;
 }

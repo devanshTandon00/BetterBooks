@@ -6,9 +6,17 @@
 <html>
 <head>
 	<link href = "searchPage.css" rel = "stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Work+Sans:ital@1&display=swap" rel="stylesheet">    
+
 </head>
 <body>
-	<div id="label"></div>
+	<%
+		if(session.getAttribute("username") == null){
+			response.sendRedirect("../loginPage/login.jsp");
+		}
+	%>
+	
+	<a href = "../landingPage/customerLandingPage.jsp" class = "projectTitle"> BetterBooks </a>
 	<h2>List:</h2>
 	<select id="select" name="form" onchange="location = this.value">
 		<option
