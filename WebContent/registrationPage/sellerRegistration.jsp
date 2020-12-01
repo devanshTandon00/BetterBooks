@@ -30,11 +30,6 @@
 			<form action="<%= request.getContextPath() %>/registerSeller" method="post">
 				<table style="with: 80%">
 					<tr>
-						<td>Username: </td>
-						<td><label> <input type="text" name="username" class = "textfield"/>
-						</label></td>
-					</tr>
-					<tr>
 						<td>First Name: </td>
 						<td><input type="text" name="firstName" class = "textfield"/></td>
 					</tr>

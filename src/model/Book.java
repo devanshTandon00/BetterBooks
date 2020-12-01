@@ -12,7 +12,8 @@ public class Book {
 		this.price = price;
 	}
 	
-	public Book(String ISBN, String title, int year, double price, String firstName, String lastName) {
+	public Book(String ISBN, String title, int year, double price, String firstName, String lastName)
+	{
 		super();
 		this.ISBN = ISBN;
 		this.year = year;
@@ -21,7 +22,7 @@ public class Book {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-	
+
 	public Book(String ISBN, String title, int year, double price, String firstName, String lastName, int authorID) {
 		super();
 		this.ISBN = ISBN;
