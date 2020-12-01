@@ -11,7 +11,7 @@
                 <h3 class = "projectTitle"><a href = "sellerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href="../aboutPage/about.jsp">About</a></li>
+                        <li><a href="../aboutPage/aboutSeller.jsp">About</a></li>
                         <li><a href="../inventoryPage/sellerInventory.jsp">Inventory</a></li>
                         <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>                      
                     </ul>
