@@ -31,11 +31,13 @@
         	</form>
         </div>
         
-        <div class = "inputBox">
-            <input type = "search" placeholder="Enter book name ...." class = "searchBox"> 
-            <i class="fa fa-search" aria-hidden="true"></i>
+		<div class = "inputBox">
+        	<form class="search" action="../searchPage/search.jsp?sortBy=default">
+        		<input type="text" placeholder="Search for book...." name="search" class = "searchBox" style = "width:100%">
+        		<input type="hidden" name="sortBy" value="default">
+        	</form>
         </div>
-
+        
         <div class = "bookSection">
             <img src="../images/book.png" class = "bookIMG">
             <img src="../images/book_1.jpg" class = "bookIMG">

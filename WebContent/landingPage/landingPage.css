@@ -75,13 +75,12 @@ header::after {
 /* SearchBox */
 .inputBox {
   display: flex;
-  justify-content: center;
+  justify-content: center;	
   padding: 80px;
 }
 
 .searchBox {
   height: 50px;
-  width: 40%;
   padding: 12px;
   border-radius: 10px;
   box-sizing: border-box;
