@@ -8,7 +8,7 @@
         <header> 
             <div class = "container">
                 <img src = "../images/icon-book.svg" class="book-icon">
-                <h3 class = "projectTitle"><a href = "customerLandingPage.jsp"> BetterBooks </a></h3>
+                <h3 class = "projectTitle"><a href = "sellerLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
                         <li><a href="../DisplayItems">Bookstore</a></li>
