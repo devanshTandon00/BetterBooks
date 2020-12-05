@@ -16,29 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `publishers`
+-- Table structure for table `book_category`
 --
 
-DROP TABLE IF EXISTS `publishers`;
+DROP TABLE IF EXISTS `book_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `publishers` (
-  `pub_id` int NOT NULL,
-  `pub_title` varchar(45) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `ISBN` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`pub_id`)
+CREATE TABLE `book_category` (
+  `ISBN` varchar(45) NOT NULL,
+  `category_id` int DEFAULT NULL,
+  PRIMARY KEY (`ISBN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `publishers`
+-- Dumping data for table `book_category`
 --
 
-LOCK TABLES `publishers` WRITE;
-/*!40000 ALTER TABLE `publishers` DISABLE KEYS */;
-INSERT INTO `publishers` VALUES (1,'HIGHLAND','123 St.','0000000000001'),(2,'MICHIGAN ASSOCIATION','123 St.','0000000000002'),(3,'SHAMROCK GROUP','123 St.','0000000000003'),(4,'CARL FISCHER PRINT','123 St.','0000000000004'),(5,'PARS INTL CORP','123 St.','0000000000005'),(6,'FROM ONE GREEK','123 St.','0000000000006'),(7,'OSCEOLA SENTINEL-TRIBUNE','123 St.','0000000000007'),(8,'ANGELO G MARAGOS','123 St.','0000000000008'),(9,'ARGOS','123 St.','0000000000009'),(10,'YOLANDA MCNAB','123 St.','0000000000010'),(11,'MELANIE AND APRIL\'S','123 St.','0000000000011'),(12,'CHARLES TUROFSKY P.C','123 St.','0000000000012'),(13,'CORPORATE RESOURCE SYSTEMS','123 St.','0000000000013'),(14,'LUCKY 7','123 St.','0000000000014'),(15,'POLK COUNTY','123 St.','0000000000015');
-/*!40000 ALTER TABLE `publishers` ENABLE KEYS */;
+LOCK TABLES `book_category` WRITE;
+/*!40000 ALTER TABLE `book_category` DISABLE KEYS */;
+INSERT INTO `book_category` VALUES ('0000000000001',3),('0000000000002',3),('0000000000003',1),('0000000000004',12),('0000000000005',8),('0000000000006',3),('0000000000007',1),('0000000000008',1),('0000000000009',4),('0000000000010',14),('0000000000011',2),('0000000000012',2),('0000000000013',1),('0000000000014',9),('0000000000015',1);
+/*!40000 ALTER TABLE `book_category` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
