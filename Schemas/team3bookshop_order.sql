@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
--- Host: localhost    Database: cs157aprojectteam3
+-- Host: 127.0.0.1    Database: team3bookshop
 -- ------------------------------------------------------
 -- Server version	8.0.21
 
@@ -16,31 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `orders`
+-- Table structure for table `order`
 --
 
-DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orders` (
-  `order_id` int NOT NULL,
-  `customer_id` int DEFAULT NULL,
-  `seller_id` int DEFAULT NULL,
-  `item_number` int DEFAULT NULL,
-  `ISBN` int DEFAULT NULL,
-  `shipping_address` varchar(45) DEFAULT NULL,
+CREATE TABLE `order` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `num_books` int DEFAULT NULL,
+  `total_price` double DEFAULT NULL,
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `order`
 --
 
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,1,15,3,2,'2900  Burwell Heights Road'),(2,2,14,1,7,'4567  Whaley Lane'),(3,3,13,1,7,'2316  Cambridge Court'),(4,4,12,2,10,'3496  Post Avenue'),(5,5,8,1,13,'3515  Fraggle Drive'),(6,6,1,4,14,'2779  Carriage Court'),(7,7,10,3,14,'930  Bottom Lane'),(8,8,13,2,10,'930  Bottom Lane'),(9,9,5,1,12,'4710  Sumner Street'),(10,10,1,1,14,'3515  Fraggle Drive'),(11,11,7,2,1,'3003  Washburn Street'),(12,12,6,2,1,'3263  Brookside Drive'),(13,13,9,3,2,'3003  Washburn Street'),(14,14,10,1,15,'3263  Brookside Drive'),(15,15,3,1,11,'4399  Arthur Avenue');
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+LOCK TABLES `order` WRITE;
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-08 17:38:14
+-- Dump completed on 2020-12-05 22:40:56

@@ -17,7 +17,7 @@
                         <li><a href="../aboutPage/aboutSeller.jsp">About</a></li>
                         <li><a href="../inventoryPage/sellerInventory.jsp">Inventory</a></li>
                         <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>                      
-                        
+                        <li><a href="delete.jsp"> Delete Book </a></li>                                  
                     </ul>
                 </nav>
             </div>
@@ -52,13 +52,14 @@
 						<td><input type="text" name="ISBN" class = "textfield"/></td>
 					</tr>
 					<tr>
-						<td>Book Price: </td>
-						<td><input type="text" name="price" class = "textfield"/></td>
-					</tr>
-					<tr>
 						<td>Number of Books: </td>
 						<td><input type="text" name="numBooks" class = "textfield"/></td>
 					</tr>
+					<tr>
+						<td>Book Price: </td>
+						<td><input type="text" name="price" class = "textfield"/></td>
+					</tr>
+					
 					
 				</table>
 				<br/>

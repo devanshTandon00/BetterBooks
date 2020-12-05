@@ -23,6 +23,7 @@
                         <li><a href="../DisplayItems">Bookstore</a></li>
                         <li><a href="../aboutPage/about.jsp">About</a></li>
                         <li><a href="../inventoryPage/inventory.jsp">Inventory</a></li>
+                        <li><a href = "../orderHistory/order.jsp">Orders</a></li>
                         <li><a href="../ViewCartItems">
                                 <img src="../images/cart-icon.png" class="cart_icon" width="30" height="25">
                         </a></li>
@@ -40,16 +41,24 @@
 			</tr>
 	
 		<%
+		int result = 0;
+		
 		Connection con = ConnectDB.connect();
+		ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");
+		double totalPrice = (double)session.getAttribute("totalPrice"); 
 		
 // 		String q = "UPDATE inventory SET numberOfBooks=0 WHERE ISBN=0000000000001";
 // 		PreparedStatement pst = con.prepareStatement(q);
 //         ResultSet rs = pst.executeQuery();
 
+        String q = "INSERT INTO `order`(num_books, total_price) VALUES(?, ?)";
+        PreparedStatement preparedStatement = con.prepareStatement(q);
+    	preparedStatement.setInt(1, bookstore.size());
+    	preparedStatement.setDouble(2, totalPrice);
+        result = preparedStatement.executeUpdate();
         
-        
-		ArrayList<Book> bookstore = (ArrayList<Book>)session.getAttribute("bookData");
-		double totalPrice = (double)session.getAttribute("totalPrice"); 
+        System.out.println(preparedStatement);
+		
 		if(bookstore != null){
 			for(Book book: bookstore){%> 
   			<tr> 
@@ -64,6 +73,7 @@
 	        <td class = "bookInfo" style = "text-align:center">$<%=totalPrice%></td>
         </tr>
 		</table>
+		
 		</div>
 	</body>
 </html>
