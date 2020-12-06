@@ -9,13 +9,16 @@ import model.Book;
 
 public class BookEditDao 
 {
-	public int registerBook(Book book) throws ClassNotFoundException
+	public int editBook(Book book) throws ClassNotFoundException
 	{
-	    String updateBook = "UPDATE books SET ISBN = ?, title = ?, year = ?, price = ?, author_id = ? "
+	    String updateBook = "UPDATE books"
+	    		+ "SET ISBN = ?,title = ?, year = ?, price = ?, author_id = ?"
 	    		+ "WHERE ISBN = ?;";
-	    String updateAuthor = "UPDATE authors SET first_name = ?, last_name = ?"
+	    String updateAuthor = "UPDATE authors"
+	    		+ "SET first_name = ?, last_name = ?"
 	    		+ "WHERE author_id = ?;";
-	    String updateInventory = "UPDATE inventory SET numberOfBooks = ?, ISBN = ?"
+	    String updateInventory = "UPDATE inventory "
+	    		+ "SET numberOfBooks = ?, ISBN = ?"
 	    		+ "WHERE ISBN = ?;";
 	    int result = 0;
 	    int result2 = 0;
@@ -28,14 +31,17 @@ public class BookEditDao
         	preparedStatement.setInt(3, book.getYear());
         	preparedStatement.setDouble(4, book.getPrice());
         	preparedStatement.setInt(5, book.getAuthorID());
+        	preparedStatement.setString(6, book.getISBN());
 
         	PreparedStatement preparedStatement2 = con.prepareStatement(updateAuthor);
         	preparedStatement2.setString(1, book.getFirstName());
             preparedStatement2.setString(2, book.getLastName());
+            preparedStatement2.setInt(3, book.getAuthorID());
 
         	PreparedStatement preparedStatement3 = con.prepareStatement(updateInventory);
         	preparedStatement3.setInt(1,book.getNumBooks());
         	preparedStatement3.setString(2,book.getISBN());
+        	preparedStatement3.setString(3,book.getISBN());
         	
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();

@@ -50,14 +50,14 @@ public class BookEditServlet extends HttpServlet
 		System.out.println("DopostActibe");
 		try 
 		{
-			bookEditDao.registerBook(book);
+			bookEditDao.editBook(book);
 		} 
 		catch (ClassNotFoundException e) 
 		{
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("landingPage/sellerLandingPage.jsp");
+		response.sendRedirect("inventoryPage/sellerInventory.jsp");
 	}
 
 }
