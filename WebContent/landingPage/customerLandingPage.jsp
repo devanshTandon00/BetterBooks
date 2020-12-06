@@ -40,6 +40,11 @@
         		<input type="text" placeholder="Search by author...." name="searchByAuthor" class = "searchBox" style = "width:100%">
         		<input type="hidden" name="sortBy" value="default">
         	</form>
+        	
+        	<form class="searchByPublisher" action="../searchPage/searchByPublisher.jsp?sortBy=default">
+        		<input type="text" placeholder="Search by publisher...." name="searchByPublisher" class = "searchBox" style = "width:100%">
+        		<input type="hidden" name="sortBy" value="default">
+        	</form>
         </div>
         
         <div class = "bookSection">
