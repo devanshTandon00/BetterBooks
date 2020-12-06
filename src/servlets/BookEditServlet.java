@@ -14,7 +14,7 @@ import model.Book;
 /**
  * Servlet implementation class BookFormServlet
  */
-@WebServlet("/bookForm")
+@WebServlet("/bookEdit")
 public class BookEditServlet extends HttpServlet 
 {
 	

@@ -11,16 +11,15 @@ public class BookEditDao
 {
 	public int registerBook(Book book) throws ClassNotFoundException
 	{
-	    String updateBook = "UPDATE books SET" +
-	            " ISBN = ?, " + " title = ?," + " year = ?," + " price = ?," + "author_id = ?" + 
-	    		"WHERE ISBN = ?;";
-	    //String insertAuthor = "INSERT INTO authors" +
-	     //       "  (first_name, last_name) VALUES " + " (?, ?);";
-	    //String insertInventory = "INSERT INTO inventory" +
-	      //      "  (numberOfBooks,ISBN) VALUES " + " (?, ?);";
+	    String updateBook = "UPDATE books SET ISBN = ?, title = ?, year = ?, price = ?, author_id = ? "
+	    		+ "WHERE ISBN = ?;";
+	    String updateAuthor = "UPDATE authors SET first_name = ?, last_name = ?"
+	    		+ "WHERE author_id = ?;";
+	    String updateInventory = "UPDATE inventory SET numberOfBooks = ?, ISBN = ?"
+	    		+ "WHERE ISBN = ?;";
 	    int result = 0;
-	    //int result2 = 0;
-	    //int result3 = 0;
+	    int result2 = 0;
+	    int result3 = 0;
 	    try (Connection con = ConnectDB.connect();) 
         {
         	PreparedStatement preparedStatement = con.prepareStatement(updateBook);
@@ -30,22 +29,22 @@ public class BookEditDao
         	preparedStatement.setDouble(4, book.getPrice());
         	preparedStatement.setInt(5, book.getAuthorID());
 
-        	/*PreparedStatement preparedStatement2 = con.prepareStatement(insertAuthor);
+        	PreparedStatement preparedStatement2 = con.prepareStatement(updateAuthor);
         	preparedStatement2.setString(1, book.getFirstName());
             preparedStatement2.setString(2, book.getLastName());
 
-        	PreparedStatement preparedStatement3 = con.prepareStatement(insertInventory);
+        	PreparedStatement preparedStatement3 = con.prepareStatement(updateInventory);
         	preparedStatement3.setInt(1,book.getNumBooks());
-        	preparedStatement3.setString(2,book.getISBN());*/
+        	preparedStatement3.setString(2,book.getISBN());
         	
             System.out.println(preparedStatement);
             result = preparedStatement.executeUpdate();
             
-            /*System.out.println(preparedStatement2);
+            System.out.println(preparedStatement2);
             result2 = preparedStatement2.executeUpdate();
             
             System.out.println(preparedStatement3);
-            result3 = preparedStatement3.executeUpdate();*/
+            result3 = preparedStatement3.executeUpdate();
         } 
         catch (SQLException e) 
         {
