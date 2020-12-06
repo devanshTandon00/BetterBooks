@@ -8,21 +8,21 @@
         <header> 
             <div class = "container">
 	                <img src = "../images/icon-book.svg" class="book-icon">
-                <h3 class = "projectTitle"><a href = "sellerLandingPage.jsp"> BetterBooks </a></h3>
+                <h3 class = "projectTitle"><a href = "adminLandingPage.jsp"> BetterBooks </a></h3>
                 <nav class = "navbar fixed-top">
                     <ul>
-                        <li><a href="../aboutPage/aboutSeller.jsp">About</a></li>
-                        <li><a href="../inventoryPage/sellerInventory.jsp">Inventory</a></li>
-                        <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>  
-                        <li><a href="../sellerPage/editBooks.jsp"> Edit Book </a></li>
-                        <li><a href="../sellerPage/delete.jsp"> Delete Book </a></li>                               
+                        <li><a href="../aboutPage/aboutAdmin.jsp">About</a></li>
+                        <li><a href="../inventoryPage/adminInventory.jsp">Inventory</a></li>
+                        <li><a href="../adminPage/sellBookForm.jsp"> Add Book </a></li>
+                        <li><a href="../adminPage/editBooks.jsp"> Edit Book </a></li>                       
+                        <li><a href="../adminPage/delete.jsp"> Delete Book </a></li>                                  
                     </ul>
                 </nav>
             </div>
         </header>
 
         <div class = "greeting">
-        	<h2 class = "greetingHead"><u>Hello, ${username}</u></h2>
+        	<h2 class = "greetingHead"><u>Hello, Administrator ${username}</u></h2>
         	<form action ="<%=request.getContextPath()%>/logout">
         		<input type = "submit" value = "Logout" class = "logout">
         	</form>

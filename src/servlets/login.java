@@ -43,6 +43,9 @@ public class login extends HttpServlet {
 				if (userType.equals("Customer")) {
 					response.sendRedirect("landingPage/customerLandingPage.jsp");
 				} 
+				else if(userType.equals("Admin")) {
+					response.sendRedirect("landingPage/adminLandingPage.jsp");
+				}
 				else {
 					response.sendRedirect("landingPage/sellerLandingPage.jsp");
 				}

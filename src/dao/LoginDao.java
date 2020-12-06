@@ -34,6 +34,18 @@ public class LoginDao {
 				System.out.println(preparedStatement2);
 				ResultSet rs1 = preparedStatement2.executeQuery();
 				status = rs1.next();
+				if(!status)
+				{
+					PreparedStatement preparedStatement3 =
+							con.prepareStatement("select * from team3bookshop.admin where first_name = ? and last_name = ? ");
+					
+					preparedStatement3.setString(1, firstName);
+					preparedStatement3.setString(2, lastName);
+
+					System.out.println(preparedStatement3);
+					ResultSet rs2 = preparedStatement3.executeQuery();
+					status = rs2.next();
+				}
 			}
 			
 			System.out.println(status);
@@ -75,8 +87,11 @@ public class LoginDao {
 			if (rs.next()) {
 				type = "Customer";
 			} 
-			else {
+			else if (rs.next()) {
 				type = "Seller";
+			}
+			else {
+				type = "Admin";
 			}
 		}
 		return type;
