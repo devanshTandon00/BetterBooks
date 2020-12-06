@@ -19,7 +19,8 @@
                     <ul>
                         <li><a href="../aboutPage/aboutSeller.jsp">About</a></li>
                         <li><a href="../inventoryPage/sellerInventory.jsp">Inventory</a></li>
-                        <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>                      
+                        <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>
+                        <li><a href="../sellerPage/editBooks.jsp"> Edit Book </a></li>                       
                         <li><a href="delete.jsp"> Delete Book </a></li>                                  
                     </ul>
                 </nav>
