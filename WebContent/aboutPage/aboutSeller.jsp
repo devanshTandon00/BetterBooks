@@ -30,7 +30,9 @@
                     <ul>
                         <li><a href="aboutSeller.jsp">About</a></li>
                         <li><a href="../inventoryPage/sellerInventory.jsp">Inventory</a></li>
-						 <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>                      
+						 <li><a href="../sellerPage/sellBookForm.jsp"> Add Book </a></li>        
+						 <li><a href="../sellerPage/editBook.jsp"> Edit Book </a></li>        
+                        <li><a href="../sellerPage/delete.jsp"> Delete Book </a></li>               
                     </ul>
                 </nav>
             </div>
