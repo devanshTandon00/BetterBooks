@@ -32,12 +32,17 @@
         
 		<div class = "inputBox">
         	<form class="search" action="../searchPage/search.jsp?sortBy=default">
-        		<input type="text" placeholder="Search by title...." name="search" class = "searchBox" style = "width:100%">
+        		<input type="text" placeholder="Search by title...." name="search" class = "searchBox" style = "width:80%">
         		<input type="hidden" name="sortBy" value="default">
         	</form>
         	
         	<form class="searchByAuthor" action="../searchPage/searchByAuthor.jsp?sortBy=default">
-        		<input type="text" placeholder="Search by author...." name="searchByAuthor" class = "searchBox" style = "width:100%">
+        		<input type="text" placeholder="Search by author...." name="searchByAuthor" class = "searchBox" style = "width:80%">
+        		<input type="hidden" name="sortBy" value="default">
+        	</form>
+        	
+        	<form class="searchByCategory" action="../searchPage/searchByCategory.jsp?sortBy=default">
+        		<input type="text" placeholder="Search by category...." name="searchByCategory" class = "searchBox" style = "width:80%">
         		<input type="hidden" name="sortBy" value="default">
         	</form>
         </div>
